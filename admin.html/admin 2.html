@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events</title>
+    <style>
+        body {
+            font-family: Poppins, Segoe UI, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #003d6b, #0056b3);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            background-image: url('header-background.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        nav {
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: color 0.3s, text-decoration 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-bottom: 3px solid #003d6b;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #003d6b;
+            font-weight: 700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        thead {
+            background: linear-gradient(to right, #003d6b, #0056b3);
+            color: white;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        th {
+            background-color: #002d4b;
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e0f7fa;
+            color: #00796b;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        td {
+            position: relative;
+        }
+
+        td::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #003d6b, #0056b3);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        td:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Upcoming Events</h1>
+        <nav>
+            <a href="adminaccess.html">Home</a>
+            <a href="logout.html">BOOKING REQUESTS RECEIVED</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Upcoming Events List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Venue</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Annual University Expo</td>
+                        <td>2024-10-05</td>
+                        <td>10:00 AM</td>
+                        <td>Administrative Block-1, Portico</td>
+                        <td>Confirmed</td>
+                    </tr>
+                    <tr>
+                        <td>Management Workshop</td>
+                        <td>2024-10-10</td>
+                        <td>1:00 PM</td>
+                        <td>MS Auditorium</td>
+                        <td>Scheduled</td>
+                    </tr>
+                    <tr>
+                        <td>Annual Excursion</td>
+                        <td>2024-10-20</td>
+                        <td>7:00 PM</td>
+                        <td>NA</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <td>Networking Event</td>
+                        <td>2024-10-30</td>
+                        <td>6:00 PM</td>
+                        <td>Main Hall</td>
+                        <td>Scheduled</td>
+                    </tr>
+                    <tr>
+                        <td>Leadership Summit</td>
+                        <td>2024-11-01</td>
+                        <td>8:00 AM</td>
+                        <td>Conference Room C</td>
+                        <td>Confirmed</td>
+                    </tr>
+                    <tr>
+                        <td>Charity Auction</td>
+                        <td>2024-11-07</td>
+                        <td>2:00 PM</td>
+                        <td>Garden Area</td>
+                        <td>Scheduled</td>
+                    </tr>
+                    <tr>
+                        <td>Winter Events</td>
+                        <td>2024-12-15</td>
+                        <td>5:00 PM</td>
+                        <td>Main Hall</td>
+                        <td>Confirmed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+
+</html>

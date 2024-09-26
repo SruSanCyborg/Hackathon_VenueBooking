@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Request</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+            background-color: #002244;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #004080;
+        }
+
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            max-width: 1200px;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #003366;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f1f3f5;
+        }
+
+        .form-container {
+            margin-bottom: 20px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-container input, .form-container select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .form-container button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #003366;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #004080;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                font-size: 14px;
+            }
+            
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Booking Request</h1>
+        <nav>
+            <a href="admin_dashboard.html">Home</a>
+            <a href="student.html">Upcoming Events and Venue</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Form for adding new booking requests -->
+        <div class="form-container">
+            <h2>Add New Booking Request</h2>
+            <form id="bookingForm">
+                <input type="text" id="venue" placeholder="Venue" required>
+                <input type="text" id="eventType" placeholder="Type of Event" required>
+                <input type="text" id="organisation" placeholder="Organisation / Student" required>
+                <input type="text" id="registrationId" placeholder="Registration ID" required>
+                <input type="date" id="date" required>
+                <input type="time" id="startTime" required>
+                <input type="time" id="endTime" required>
+                <input type="number" id="members" placeholder="Expected Members" required>
+                <button type="submit">Add Booking</button>
+            </form>
+        </div>
+
+        <!-- Table to display booking requests -->
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">S. NO.</th>
+                    <th scope="col">VENUE</th>
+                    <th scope="col">TYPE OF EVENT</th>
+                    <th scope="col">ORGANISATION / STUDENT</th>
+                    <th scope="col">REGISTRATION ID</th>
+                    <th scope="col">DATE</th>
+                    <th scope="col">STARTING TIME</th>
+                    <th scope="col">ENDING TIME</th>
+                    <th scope="col">EXPECTED MEMBERS</th>
+                </tr>
+            </thead>
+            <tbody id="bookingTableBody">
+                <!-- Booking rows will be inserted here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const form = document.getElementById('bookingForm');
+        const tableBody = document.getElementById('bookingTableBody');
+        let bookingCount = 0;
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form data
+            const venue = document.getElementById('venue').value;
+            const eventType = document.getElementById('eventType').value;
+            const organisation = document.getElementById('organisation').value;
+            const registrationId = document.getElementById('registrationId').value;
+            const date = document.getElementById('date').value;
+            const startTime = document.getElementById('startTime').value;
+            const endTime = document.getElementById('endTime').value;
+            const members = document.getElementById('members').value;
+
+            // Create a new row
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${++bookingCount}</td>
+                <td>${venue}</td>
+                <td>${eventType}</td>
+                <td>${organisation}</td>
+                <td>${registrationId}</td>
+                <td>${date}</td>
+                <td>${startTime}</td>
+                <td>${endTime}</td>
+                <td>${members}</td>
+            `;
+
+            // Append the new row to the table
+            tableBody.appendChild(newRow);
+
+            // Reset the form
+            form.reset();
+        });
+    </script>
+</body>
+</html>

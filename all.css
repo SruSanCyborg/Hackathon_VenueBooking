@@ -1,0 +1,77 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif; 
+}
+
+.background {
+    background-image: url('all.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 4rem;
+    color: white;
+    margin: 0;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    text-decoration: underline;
+    text-shadow: 2px 2px 4px rgba(207, 236, 39, 0.6);
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.icon-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.icon {
+    width: 150px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.gradient-icon {
+    background: linear-gradient(135deg, rgb(234, 250, 9), rgb(20, 181, 221));
+}
+
+.icon:hover {
+    transform: scale(1.5);
+}
+
+.icon-link:first-child .icon {
+    left: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.icon-link:last-child .icon {
+    right: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+}
